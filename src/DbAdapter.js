@@ -22,17 +22,22 @@ const newDbAdapter = ({ client, connection }, logger) => {
   const table = (name) => db.select().table(name);
   
   // selectors with explicit table names
-  const jobs           = () => table(constants.TBL_JOBS);
-  const industries     = () => table(constants.TBL_INDUSTRIES);
-  const jobsIndustries = () => table(constants.TBL_JOBS_INDUSTRIES);
+  const jobs                     = () => table(constants.TBL_JOBS);
+  const sectors                  = () => table(constants.TBL_SECTORS);
+  const subsectors               = () => table(constants.TBL_SUBSECTORS);
+  const qualifications           = () => table(constants.TBL_QUALIFICATIONS);
+  const jobsSubSectors           = () => table(constants.TBL_JOBS_SUBSECTORS);
+  const subSectorsQualifications = () => table(constants.TBL_SUBSECTORS_QUALIFICATIONS);
   
   return {
     db,
     query,
     table,
     jobs,
-    industries,
-    jobsIndustries,
+    sectors,
+    subsectors,
+    jobsSubSectors,
+    subSectorsQualifications,
   };
 };
 

@@ -21,15 +21,21 @@ const newHttpRoutes = (config, httpRouter, dbAdapter) => {
     };
   };
   
-  const jobList         = makeListHandler(constants.TBL_JOBS);
-  const industryList    = makeListHandler(constants.TBL_INDUSTRIES);
-  const jobIndustryList = makeListHandler(constants.TBL_JOBS_INDUSTRIES);
+  const jobList                    = makeListHandler(constants.TBL_JOBS);
+  const sectorList                 = makeListHandler(constants.TBL_SECTORS);
+  const subSectorList              = makeListHandler(constants.TBL_SUBSECTORS);
+  const qualificationList          = makeListHandler(constants.TBL_QUALIFICATIONS);
+  const jobSubSectorList           = makeListHandler(constants.TBL_JOBS_SUBSECTORS);
+  const subSectorQualificationList = makeListHandler(constants.TBL_SUBSECTORS_QUALIFICATIONS);
   
   const attachRoutes = () => {
     // intentionally cause side-effects
     httpRouter.get(constants.RUT_JOBS, jobList);
-    httpRouter.get(constants.RUT_INDUSTRIES, industryList);
-    httpRouter.get(constants.RUT_JOBS_INDUSTRIES, jobIndustryList);
+    httpRouter.get(constants.RUT_SECTORS, sectorList);
+    httpRouter.get(constants.RUT_SUBSECTORS, subSectorList);
+    httpRouter.get(constants.RUT_QUALIFICATIONS, qualificationList);
+    httpRouter.get(constants.RUT_JOBS_SUBSECTORS, jobSubSectorList);
+    httpRouter.get(constants.RUT_SUBSECTORS_QUALIFICATIONS, subSectorQualificationList);
     
     return true;
   };
@@ -37,8 +43,11 @@ const newHttpRoutes = (config, httpRouter, dbAdapter) => {
   return {
     routes: {
       jobList,
-      industryList,
-      jobIndustryList,
+      sectorList,
+      subSectorList,
+      qualificationList,
+      jobSubSectorList,
+      subSectorQualificationList,
     },
     attachRoutes,
   };
