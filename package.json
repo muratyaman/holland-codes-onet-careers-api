@@ -1,6 +1,6 @@
 {
   "name": "holland-codes-onet-careers-api",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Careers API - recommendation of jobs based on scores Holland Codes (RIASEC) using O*Net database, Node.js, Express.js and Knex.js",
   "main": "index.js",
   "scripts": {
